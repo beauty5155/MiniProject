@@ -34,14 +34,14 @@ public class AppServ extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String sPath = request.getServletPath();
-        String name = request.getParameter("uname");
-        String password = request.getParameter("pwd");
-        
+
         try (PrintWriter out = response.getWriter()) {
-            
+
             if (sPath.equals("/login1")) {
+                String name = request.getParameter("uname");
+                String password = request.getParameter("pwd");
 
                 if (password.equals("admin")) {
                     RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
